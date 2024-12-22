@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  Typography,
-  Box,
-  Chip,
-  Stack,
-  IconButton,
-} from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Card, CardContent, Typography, LinearProgress, Box } from '@mui/material';
 
 const TaskCard = ({ task }) => (
   <Card
@@ -17,57 +8,33 @@ const TaskCard = ({ task }) => (
       marginBottom: 2,
       borderRadius: 2,
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-      transition: 'transform 0.2s, box-shadow 0.2s',
-      '&:hover': {
-        transform: 'translateY(-4px)',
-        boxShadow: '0 6px 16px rgba(0, 0, 0, 0.15)',
-      },
     }}
   >
-    <CardContent sx={{ padding: '16px 24px', position: 'relative' }}>
-      {/* Priority Badge */}
-      <Chip
-        label={task.priority}
-        size="small"
-        sx={{
-          position: 'absolute',
-          top: 16,
-          left: 16,
-          fontWeight: 'bold',
-          backgroundColor: task.priority === 'High' ? '#FF6961' : '#FFECB3',
-          color: task.priority === 'High' ? '#fff' : '#000',
-        }}
-      />
-
-      {/* Options Menu */}
-      <IconButton
-        size="small"
-        sx={{
-          position: 'absolute',
-          top: 16,
-          right: 16,
-          color: 'text.secondary',
-        }}
-      >
-        <MoreVertIcon />
-      </IconButton>
-
-      {/* Task Title */}
-      <Typography variant="h6" fontWeight="bold" gutterBottom>
+    <CardContent>
+      <Typography variant="h6" fontWeight="bold">
         {task.title}
       </Typography>
-
-      {/* Task Description */}
       <Typography variant="body2" color="text.secondary" gutterBottom>
         {task.description}
       </Typography>
-
-      {/* Comments Section */}
-      <Stack direction="row" spacing={1} alignItems="center" mt={2}>
-        <Typography variant="body2" color="text.secondary">
-          {task.comments} comments
+      <Box sx={{ marginTop: 1 }}>
+        <Typography variant="caption" color="text.secondary">
+          Difficulty: {task.difficulty}
         </Typography>
-      </Stack>
+        <LinearProgress
+          variant="determinate"
+          value={task.difficulty === 'Easy' ? 33 : task.difficulty === 'Medium' ? 66 : 100}
+          sx={{
+            height: 8,
+            borderRadius: 2,
+            backgroundColor: '#e0e0e0',
+            '& .MuiLinearProgress-bar': {
+              backgroundColor:
+                task.difficulty === 'Easy' ? '#81C784' : task.difficulty === 'Medium' ? '#FFD54F' : '#E57373',
+            },
+          }}
+        />
+      </Box>
     </CardContent>
   </Card>
 );
