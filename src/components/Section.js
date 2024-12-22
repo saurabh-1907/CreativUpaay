@@ -1,33 +1,23 @@
 import React from 'react';
 import TaskCard from './TaskCard';
-import { Button, Typography, Box } from '@mui/material';
 
 const Section = ({ title, tasks, onAddTask }) => (
-  <Box
-    sx={{
-      flex: 1,
-      backgroundColor: '#ffffff',
-      borderRadius: 2,
-      padding: 2,
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    }}
-  >
-    <Typography variant="h6" align="center" fontWeight="bold" sx={{ marginBottom: 2 }}>
-      {title}
-    </Typography>
-    {tasks.map((task, index) => (
-      <TaskCard key={index} task={task} />
-    ))}
-    <Button
-      variant="contained"
-      color="primary"
-      fullWidth
-      sx={{ marginTop: 2 }}
-      onClick={onAddTask}
-    >
-      Add Task
-    </Button>
-  </Box>
+  <div className="flex-1 bg-white p-4 rounded-lg shadow-md">
+    <div className="flex justify-between items-center mb-4">
+      <h3 className="font-bold text-lg">{title}</h3>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        onClick={onAddTask}
+      >
+        +
+      </button>
+    </div>
+    <div className="space-y-4">
+      {tasks.map((task, index) => (
+        <TaskCard key={index} task={task} />
+      ))}
+    </div>
+  </div>
 );
 
 export default Section;

@@ -1,11 +1,9 @@
-// App.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTask } from './redux/taskSlice';
 import Header from './components/Header';
-import Section from './components/Section';
 import Sidebar from './components/Sidebar';
-import { Box, Stack } from '@mui/material';
+import Section from './components/Section';
 
 const App = () => {
   const tasks = useSelector((state) => state.tasks.tasks);
@@ -21,13 +19,15 @@ const App = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh' }}>
+    <div className="flex">
+      {/* Sidebar */}
       <Sidebar />
-      <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+      {/* Main Content */}
+      <div className="ml-64 flex-1">
         <Header />
-        <Box sx={{ flexGrow: 1, padding: 4, backgroundColor: '#f8f9fb', overflowY: 'auto' }}>
-          <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>Mobile App</h1>
-          <Stack direction="row" spacing={2} justifyContent="space-between">
+        <main className="p-8">
+          <h1 className="text-2xl font-bold mb-6">Mobile App</h1>
+          <div className="flex gap-4">
             <Section
               title="To Do"
               tasks={tasks.toDo}
@@ -43,10 +43,10 @@ const App = () => {
               tasks={tasks.done}
               onAddTask={() => handleAddTask('done')}
             />
-          </Stack>
-        </Box>
-      </Box>
-    </Box>
+          </div>
+        </main>
+      </div>
+    </div>
   );
 };
 
