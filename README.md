@@ -1,3 +1,22 @@
+# Creative Upaay Assessment 
+
+
+## Front-End
+
+The front-end for this project is built using React.
+
+## Screenshot
+
+![Front-End Screenshot](./screenshot.png)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/repository-name.git
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
