@@ -36,7 +36,7 @@ const Header = () => {
             <div className="h-8 w-8 bg-gray-300 rounded-full flex items-center justify-center">
               <User className="h-5 w-5 text-gray-500" />
             </div>
-            <span className="text-sm text-gray-700 font-medium">John Doe</span>
+            <span className="text-sm text-gray-700 font-medium">Saurabh Pandey</span>
           </div>
           <button className="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
             <Menu className="h-5 w-5" />
